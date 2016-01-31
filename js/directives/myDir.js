@@ -34,41 +34,18 @@ myApp.directive('myDir',function($interval, dateFilter) {
 	};
 })
 
-  .directive('showPriceArrow',['$timer',function($timer) {  
-	  function link(scope, element, attrs) {
-		    var format,
-	        timeoutId;
-
-		    function updateTime() {
-		      element.text(" consider: "  + scope.considerPrice + " curr: " + scope.currentPrice);
-		    }
-		    /*
-		    scope.$watch(attrs.myCurrentTime, function(value) {
-		      format = value;
-		      updateTime();
-		    });
-	*/
-		    element.on('$destroy', function() {
-		      $interval.cancel(timeoutId);
-		    });
-
-		    // start the UI update process; save the timeoutId for canceling
-		    timeoutId = $timer(function() {
-		    	//alert("hi")
-		    	updateTime(); // update DOM
-		   }, 1000);
-	   }
+  .directive('showPriceArrow',[function() {  
 	  
 	  
     	return {
     		restrict: 'E',    		
     		
     		scope: {
-    			considerPrice: '=',
-    			currentPrice: '=',
-    			isChanged: '='
+    			considerPrice: '@',
+    			currentPrice: '@',
+    			isChanged: '@'
     		},
-    		/*
+    		
     	   controller: function($scope) {
     		   //$scope.isChanged=scope.isChanged;
     		   $scope.getPrice=function() {
@@ -76,18 +53,20 @@ myApp.directive('myDir',function($interval, dateFilter) {
     		   }
     		   $scope.getMessage=function() {    			   
     			   var msg="test";
-    	    		if ($scope.isChanged) {
+    	    		if ($scope.isChanged===true) {
     	    			msg=" Originally ";
     	    		}
-    	    		return msg;
+    	    		var addprice=$scope.currentPrice + 15;
+    	    		return msg + ":  "  + $scope.currentPrice + " now: " + addprice;
     		   }
     		   $scope.getDirectionClass=function() {
     			   var classname="glyphicon-arrow-left"
     			   return classname;	   
-    		   }
+    		   }  		   
     		   
-    	   },  */  	   
-    	   link:link
+    	   } ,
+    	   templateUrl: 'js/directives/showPriceArrow.htm'
+    	  
     	}    	
     }])
 

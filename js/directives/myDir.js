@@ -10,17 +10,19 @@ myApp.directive('myDir',function($interval, dateFilter) {
 	    scope.$watch(attrs.myCurrentTime, function(value) {
 	      format = value;
 	      updateTime();
-	    });
-*/
-	    element.on('$destroy', function() {
-	      $interval.cancel(timeoutId);
-	    });
-
+	    });*/
+	   
 	    // start the UI update process; save the timeoutId for canceling
 	    timeoutId = $interval(function() {
 	    	//alert("hi")
 	    	updateTime(); // update DOM
 	   }, 1000);
+	    
+	    element.on('$destroy', function() {
+		     $interval.cancel(timeoutId);
+		 });
+ 
+	    
    }
 	return {
 		restrict: 'EA',
@@ -43,7 +45,8 @@ myApp.directive('myDir',function($interval, dateFilter) {
     		scope: {
     			considerPrice: '@',
     			currentPrice: '@',
-    			isChanged: '@'
+    			isChanged: '@',
+    			priceData: '@'
     		},
     		
     	   controller: function($scope) {
@@ -60,7 +63,7 @@ myApp.directive('myDir',function($interval, dateFilter) {
     	    		return msg + ":  "  + $scope.currentPrice + " now: " + addprice;
     		   };
     		   $scope.getDirectionClass=function() {
-    			   var classname="glyphicon-arrow-left"
+    			   var classname="glyphicon-arrow-left";
     			   return classname;	   
     		   };  		   
     		   

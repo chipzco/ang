@@ -16,7 +16,8 @@ myApp.config(function($stateProvider,$urlRouterProvider) {
 		green={
 				name: "green",
 				url: "green",
-				controller: "greenCtrl",	
+				controller: "greenCtrl",
+				controllerAs: "vm",
 				templateUrl: "green.html",
 				parent: "ho"
 		},

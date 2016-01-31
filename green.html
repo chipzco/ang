@@ -1,11 +1,11 @@
 <div style="color:green">
-             green
+      green
  </div>
  
      <div ui-view>Ang will go here when ready!
     <a ui-sref="ang">GOTOT ang</a>    
     <br>
     Ok here goes price arrow: 
-    <show-price-arrow is-changed={{isDiff}} consider-price={{conPrice}} current-price={{currPrice}}></show-price-arrow>
+    <show-price-arrow price-data={{vm.pricedata}} is-changed={{vm.pricedata.isDiff}} consider-price={{vm.pricedata.conPrice}} current-price={{vm.pricedata.currPrice}}></show-price-arrow>
     
     </div>

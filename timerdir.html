@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="docsTimeDirective" >
+	<head>
+	
+		<title>Ang timer  </title>		
+		<script src="js/angular.js"></script>
+		<script src="js/angular-ui-router.0.2.15.min.js"></script>
+		<script src="js/angular-filter.min.js"></script>
+		<script src="js/timerdir.js"></script>	
+		
+		
+		
+		
+	</head>
+	<body >
+<div ng-controller="Controller">
+  Date format: <input ng-model="format"> <hr/>
+  Current time is: <my-dir name="ch" format="format"></my-dir>
+</div>		
+	</body>
+
+</html>
+

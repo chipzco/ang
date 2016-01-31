@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+	
+		<title>Ang {{ title }} </title>		
+		<script src="js/angular.js"></script>
+		<script src="js/angular-ui-router.0.2.15.min.js"></script>
+		<script src="js/angular-filter.min.js"></script>
+		<script src="js/app.js"></script>	
+		
+		<script src="js/controllers/SidebarCtrl.js"></script>
+		<script src="js/controllers/greetingCont.js"></script>
+		<script src="js/directives/myDir.js"></script>
+		<script src="js/controllers/redCtrl.js"></script>
+		<script src="js/controllers/greenCtrl.js"></script>
+		
+		<link  rel="stylesheet" href="css/bootstrap.min.css">
+		<link  rel="stylesheet" href="css/bootstrap-theme.min.css">
+	</head>
+	<body >
+		<div style="margin-left:100px;">
+		 <ui-view>
+       		 <i>Some content will load here!</i>
+  		  </ui-view>
+  		  </div>		
+	</body>
+
+</html>

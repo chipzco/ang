@@ -43,7 +43,8 @@ myApp.directive('myDir',function($interval, dateFilter) {
     		scope: {
     			considerPrice: '@',
     			currentPrice: '@',
-    			isChanged: '@'
+    			isChanged: '@',
+    			priceData: '@'
     		},
     		
     	   controller: function($scope) {

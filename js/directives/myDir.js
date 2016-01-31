@@ -50,7 +50,7 @@ myApp.directive('myDir',function($interval, dateFilter) {
     		   //$scope.isChanged=scope.isChanged;
     		   $scope.getPrice=function() {
     			   return $scope.considerPrice; 
-    		   }
+    		   };
     		   $scope.getMessage=function() {    			   
     			   var msg="test";
     	    		if ($scope.isChanged===true) {
@@ -58,16 +58,16 @@ myApp.directive('myDir',function($interval, dateFilter) {
     	    		}
     	    		var addprice=$scope.currentPrice + 15;
     	    		return msg + ":  "  + $scope.currentPrice + " now: " + addprice;
-    		   }
+    		   };
     		   $scope.getDirectionClass=function() {
     			   var classname="glyphicon-arrow-left"
     			   return classname;	   
-    		   }  		   
+    		   };  		   
     		   
     	   } ,
     	   templateUrl: 'js/directives/showPriceArrow.htm'
     	  
-    	}    	
+    	};    	
     }])
 
 ;

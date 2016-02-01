@@ -21,7 +21,8 @@ myApp.controller('greenCtrl', ['$scope','$timeout', function($scope,$timeout) {
 	};
 	
 	vm.alert=function(mess) {
-		alert(mess);		
+		var pd=vm.pricedata.currPrice - vm.pricedata.conPrice;
+		alert(mess +  " pd= " + pd  + " mys mess: "  + vm.mymess);		
 	};
 	
 }]);

@@ -1,3 +1,4 @@
+
 <div class="alert">
 	<div><a href ng-click="close({message: 'closing for now'})">&times; close it</a></div>
 	<br>
@@ -8,16 +9,14 @@
 	currentPrice={{currentPrice() | currency}}
 	<br>
 	{{priceData()}}
-
-
+	<br /><hr />
+	<div ng-transclude>content:</div>
+	
+	<br /><hr />
 	<p>
 		<input type="text" ng-model="x" />
 		<button ng-click="checkPriceDiff()">Check price diff using dir function calling parent function available from attribute</button>
-		<button ng-click="anothpass({mess: 'hello'})">Check price diff using parent function directly</button>
-		
-		<div ng-transclude></div>
-		
-		
+		<button ng-click="anothpass({mess: 'hello'})">Check price diff using parent function directly</button>	
 		{{retmessage}}
 	</p>
 </div>

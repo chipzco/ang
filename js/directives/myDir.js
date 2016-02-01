@@ -41,12 +41,15 @@ myApp.directive('myDir',function($interval, dateFilter) {
 	  
     	return {
     		restrict: 'E',    		
-    		
+    		transclude: true,
     		scope: {
-    			considerPrice: '@',
-    			currentPrice: '@',
-    			isChanged: '@',
-    			priceData: '@'
+    			considerPrice: '&',
+    			currentPrice: '&',
+    			isChanged: '&',
+    			priceData: '&',
+    			passfn: '&',
+    			close: '&onClose',
+    			anothpass: '&pass2fn'
     		},
     		
     	   controller: function($scope) {
@@ -54,18 +57,37 @@ myApp.directive('myDir',function($interval, dateFilter) {
     		   $scope.getPrice=function() {
     			   return $scope.considerPrice; 
     		   };
+    		   $scope.x=11;
     		   $scope.getMessage=function() {    			   
     			   var msg="test";
     	    		if ($scope.isChanged===true) {
     	    			msg=" Originally ";
     	    		}
-    	    		var addprice=$scope.currentPrice + 15;
-    	    		return msg + ":  "  + $scope.currentPrice + " now: " + addprice;
+    	    		var addprice=$scope.currentPrice() + 15;
+    	    		
+    	    		if ('currPrice' in $scope.priceData()) {
+    	    			var addprice2=$scope.priceData().currPrice + 15;
+    	    			msg=" price data - current price: " + $scope.priceData().currPrice + " add something:    " + addprice2;
+    	    		}
+    	    		else 
+    	    			msg += " typeof: " +  typeof($scope.priceData());
+    	    		
+    	    		return msg + ":  "  + $scope.currentPrice() + " now: " + addprice;
     		   };
     		   $scope.getDirectionClass=function() {
     			   var classname="glyphicon-arrow-left";
     			   return classname;	   
-    		   };  		   
+    		   }; 
+    		   
+    		   $scope.checkPriceDiff=function() {
+    			   var invalue=parseInt($scope.x);
+    			   
+    			   var retfn=$scope.passfn();
+    			   var retvalue=retfn(invalue);
+    			   $scope.retmessage="invalue= " + invalue + " the return is: " + retvalue;  //  + retvalue;
+    		   };
+    		   
+    		   
     		   
     	   } ,
     	   templateUrl: 'js/directives/showPriceArrow.htm'

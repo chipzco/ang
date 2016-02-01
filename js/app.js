@@ -28,7 +28,7 @@ myApp.config(function($stateProvider,$urlRouterProvider) {
 			parent:"green",
 			controller: "GreetingController",
 			controllerAs: "gt"
-		}
+		};
 		/*
 		.state('home',{
 			
@@ -51,7 +51,7 @@ myApp.config(function($stateProvider,$urlRouterProvider) {
     	url: "/prov/:a",		
     	  templateProvider: function ($timeout, $stateParams) {
     	    return $timeout(function () {
-    	      return '<h1>' + $stateParams.a + '</h1>'
+    	      return '<h1>' + $stateParams.a + '</h1>';
     	    }, 100);
     	  }
     });

@@ -1,11 +1,15 @@
 <div style="color:green">
       green
+      <br>
+      <a ui-sref="ang">GOTOT ang</a>
  </div>
- 
-     <div ui-view>Ang will go here when ready!
-    <a ui-sref="ang">GOTOT ang</a>    
+      
+<div ui-view>Ang view will go here when ready!</div>
+  <div> 
     <br>
-    Ok here goes price arrow: 
-    <show-price-arrow price-data={{vm.pricedata}} is-changed={{vm.pricedata.isDiff}} consider-price={{vm.pricedata.conPrice}} current-price={{vm.pricedata.currPrice}}></show-price-arrow>
-    
-    </div>
+    Ok here goes price arrow:
+    <br><br>{{vm.message}} 
+    <show-price-arrow ng-hide="vm.dialogIsHidden" on-close="vm.hideDialog(message)" pass2fn="vm.alert(mess)"  passfn="vm.pricedata.seepriceDiffplus" price-data="vm.pricedata" is-changed="vm.pricedata.isDiff" consider-price="vm.pricedata.conPrice" current-price="vm.pricedata.currPrice">
+    	what? about me?
+    </show-price-arrow>    
+  </div>

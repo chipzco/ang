@@ -28,7 +28,16 @@ myApp.config(function($stateProvider,$urlRouterProvider) {
 			parent:"green",
 			controller: "GreetingController",
 			controllerAs: "gt"
-		};
+		},
+		filtertest={
+				name: "filtertest",
+				url: "/filtertest",
+				templateUrl:"views/filterView.htm",
+				parent:"green",
+				controller: "filterController",
+				controllerAs: "fc"
+		}	
+	 ;
 		/*
 		.state('home',{
 			
@@ -40,6 +49,7 @@ myApp.config(function($stateProvider,$urlRouterProvider) {
     $stateProvider.state(red);
     $stateProvider.state(green);
     $stateProvider.state(ang);
+    $stateProvider.state(filtertest);
     $stateProvider.state('contacts', {
     url: "/contacts/:a",	
       templateUrl: function ($stateParams){

@@ -1,0 +1,9 @@
+<div>
+      All entries:
+      <span ng-repeat="entry in fc.array">{{entry.name}} </span>
+    </div>
+    <div>
+      Filter By Name in angular controller<hr/>
+      <span ng-repeat="entry in fc.filteredArray">{{$index}}{{entry.name}}<br> </span>
+      <hr/>
+    </div>

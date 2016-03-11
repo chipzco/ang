@@ -1,16 +1,20 @@
 <div style="color:red">
    RED
    
-   
+   <span style="color:green">check if its an array, it has lenght and 0 index exists and the value has key : <b> {{isarray}}</b></span>
    <div>
+   <form name="form" class="css-form" novalidate>
 	    Date format: <input ng-model="format">
 	    
-	    Name: <input ng-model="ch.name"> <br/>
+	    Name: <input name="name" ng-model="ch.name" required valid-name>
+	     :<span ng-show="form.name.$error.validName">enter valid name</span>
+	     :<span ng-show="form.name.$error.required">req name</span>
+	     <br/>
 	    Address: <input ng-model="ch.addr"> <br/>
 	     <hr/>
 	  	Current time is:  <my-dir name="ch" format="format"></mydir>
 	  	
 	  	
-	  	sdjhdfsjkhkjhkj
+	 </form> 	
    </div>
 </div>

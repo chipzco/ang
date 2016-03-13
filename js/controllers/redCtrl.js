@@ -1,4 +1,4 @@
-myApp.controller('redCtrl', ['$scope','$log','filterFilter', function($scope,$log,filterFilter) {
+myApp.controller('redCtrl', ['$scope','$log','filterFilter','curryService', function($scope,$log,filterFilter,curryService) {
 	 $scope.format = 'M/d/yy h:mm:ss a';
 	 $scope.ch={};
 	 $scope.ch.name="chARLES";
@@ -34,5 +34,29 @@ myApp.controller('redCtrl', ['$scope','$log','filterFilter', function($scope,$lo
 	 }
 	 else 
 		 $scope.isarray="array is NOT THERE " ;
+	 
+	 var scope = {name: 'Inigo Montoya'}; 
+	//var mycurr=curryService.bind(function() { alert("hellow"); });
+	
+	var f=function(x,y) {
+		var ret='My name is ' + this.name +  " x= " + x + " y " + y + " 3rd arg is " + arguments[2];
+		$log.debug(ret);
+		$log.debug("my fn arguments");
+		$log.debug(arguments);
+	    return ret;
+	}
+	var z=3,a=17
+	var sayIt = curryService.bind(f,scope,z,a);
+	$log.debug(sayIt);
+	sayIt(99,19);
+	//mycurr();
+	var greeter = function(greeting, separator, emphasis, name) {
+		var myinfo=greeting + separator + name + emphasis;
+		  $log.log(myinfo);
+		  this.curryInfo=myinfo;
+	};
+	var greetHello = curryService.bind(greeter,$scope, "Hello", ".... ","!");
+	greetHello("Heidi"); //"Hello, Heidi."
+	greetHello("Eddie"); //"Hello, Eddie."
 	 
 }]);

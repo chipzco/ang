@@ -6,11 +6,20 @@
       
 <div ui-view>Ang view will go here when ready!</div>
   <div> 
+  
+  <br/>
+  
+  <input type="text" name="phoneinput" ng-model="vm.phone" ng-change="vm.formatPhone()" /> <span>{{vm.formattedPhone}}</span>
+  
     <br>
     Ok here goes price arrow:
     <br><br>{{vm.message}}
-    <input type="Text" ng-model="vm.mymess" />      
-    <show-price-arrow ng-hide="vm.dialogIsHidden" on-close="vm.hideDialog(message)" pass2fn="vm.alert(mess)"  passfn="vm.pricedata.seepriceDiffplus" price-data="vm.pricedata" is-changed="vm.pricedata.isDiff" consider-price="vm.pricedata.conPrice" current-price="vm.pricedata.currPrice">
-    	what? about me? this is my content. <i>Price Dif?: {{vm.pricedata.isDiff}}</i>
+    <input type="Text" ng-model="vm.mymess" />
+    
+    <br/>
+    <input type="button" ng-click="vm.addOne()" value="ADD ONE to Current Price from greenCtrl">
+    <br/>      
+    <show-price-arrow ng-hide="vm.dialogIsHidden" on-close="vm.hideDialog(message)" pass2fn="vm.alert(mess)"  passfn="vm.pricedata.seepriceDiffplus" price-data="vm.pricedata" price-json-data="{{vm.pricedata}}"  is-changed="vm.pricedata.isDiff" consider-price="vm.pricedata.conPrice" current-price2="{{vm.pricedata.currPrice}}" current-price="vm.pricedata.currPrice">
+    	what? about me? this is my content transcluded withing the show-price-arrow. <i>Price Dif?: {{vm.pricedata.isDiff}}</i>
     </show-price-arrow>    
   </div>

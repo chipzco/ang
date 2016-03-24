@@ -1,14 +1,23 @@
 
 <div class="alert">
-	<div><a href ng-click="close({message: 'closing for now'})">&times; close it</a></div>
+	<div><a href ng-click="close({message: 'closing for now'})">&times; close it</a>     THIS IS THE PRICE ARROW </div>
 	<br>
 	<span>Hello {{getMessage()}}</span>
 	<br>
 	considerPrice={{considerPrice()}} <br>
+	currentPrice using @ symbol and curly braces: {{currentPrice2}}
+	<br/>
 	isChanged={{isChanged()}}<br>
 	currentPrice={{currentPrice() | currency}}
 	<br>
 	{{priceData()}}
+	<br/>
+	converted from json pass: {{priceData2}}  - not that this does not change since fromJson is a copy.
+	<br/>
+	
+	the actual json: {{priceJsonData}}
+	<br/>
+	
 	<br /><hr />
 	<div ng-transclude>content:</div>
 	
@@ -26,6 +35,4 @@
 
 
 
-!--
-
-this isuersimp. --
+<!-- this isuersimp. -->

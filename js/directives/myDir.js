@@ -44,20 +44,23 @@ myApp.directive('myDir',function($interval, dateFilter) {
     		transclude: true,
     		scope: {
     			considerPrice: '&',
+    			currentPrice2: '@',
     			currentPrice: '&',
     			isChanged: '&',
     			priceData: '&',
+    			priceJsonData: '@',
     			passfn: '&',
     			close: '&onClose',
     			anothpass: '&pass2fn'
     		},
     		
-    	   controller: function($scope) {
+    	   controller: function($scope,$log) {
     		   //$scope.isChanged=scope.isChanged;
     		   $scope.getPrice=function() {
     			   return $scope.considerPrice; 
     		   };
     		   $scope.x=11;
+    		   $scope.priceData2=angular.fromJson($scope.priceJsonData);
     		   $scope.getMessage=function() {    			   
     			   var msg="test";
     	    		if ($scope.isChanged===true) {
@@ -85,6 +88,9 @@ myApp.directive('myDir',function($interval, dateFilter) {
     			   var retfn=$scope.passfn();
     			   var retvalue=retfn(invalue);
     			   $scope.retmessage="invalue= " + invalue + " the return is: " + retvalue;  //  + retvalue;
+    			   $log.log("the considerPrice getter: ");
+    			   $log.debug($scope.considerPrice);
+    			   $log.debug($scope.considerPrice());
     		   };
     		   
     		   

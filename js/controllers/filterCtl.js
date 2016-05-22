@@ -1,4 +1,4 @@
-myApp.controller('filterController', ['$scope', 'emptyToEndFilter','orderByFilter','$log',function($scope,emptyToEndFilter,orderByFilter,$log) {
+myApp.controller('filterController', ['$scope', 'emptyToEndFilter','orderByFilter','yesnoFilter','$log',function($scope,emptyToEndFilter,orderByFilter,yesnoFilter,$log) {
 	this.greeting = 'Hola its greeting as now!';
 	this.array = [
 	              {name: '',date: new Date("2015-03-25T12:00:01")},
@@ -32,8 +32,10 @@ myApp.controller('filterController', ['$scope', 'emptyToEndFilter','orderByFilte
          return item['name'];
      });
 	 $log.debug(present);	
-	 
-	 
-	 
-	
-}]);	
+
+
+
+	$scope.valuetoTest="Hello";
+
+	$scope.testedvalue= yesnoFilter(9090,'IS EQUAL','NOT EQUAL',9090) ;
+}]);

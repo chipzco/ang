@@ -11,3 +11,32 @@
       <button ng-click="fc.revsort()">Reverse Sort</button>
       <hr/>
     </div>
+
+
+<hr>
+<div>
+
+VALUE TO TEST FOR YES NO: <input type="text" ng-model="valuetoTest">
+    <br>
+ YES Label:   <input type="text" value="YES" ng-model="yeslabel">  No Label<input type="text" value="NO" ng-model="nolabel">
+    <br>
+   yes value:  <input type="text" value="1" ng-model="yesvalue">
+<br>
+ <span style="color:red" ng-bind="valuetoTest|yesno:yeslabel:nolabel:yesvalue"></span>
+<br>
+   <div style="font-style: italic"> the tested value: <span ng-bind="testedvalue"></span></div>
+
+
+    <br>
+<input type="text" ng-model="boolvalue">
+    <span style="color:green" ng-bind="boolvalue|makeBoolean"> </span>
+
+
+
+    <br>
+<br>
+    VALUE TO TEST FOR YES NO: <input type="text" ng-model="testvalue">
+    <span style="color:red" ng-bind="testvalue|makeBoolean|yesno"></span>
+</div>
+
+<hr>

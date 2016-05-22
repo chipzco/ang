@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp',['ui.router','angular.filter']);
+var myApp = angular.module('myApp',['ui.router','angular.filter','UtilFilter']);
 myApp.config(function($stateProvider,$urlRouterProvider) {
 	$stateProvider
 		var home={

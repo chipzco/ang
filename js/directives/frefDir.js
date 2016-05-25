@@ -1,4 +1,4 @@
-myApp.directive('frefDir',function($log,$interval, dateFilter) {
+myApp.directive('frefDir',['$log', '$interval', 'dateFilter',function($log,$interval) {
 	var fns={};
 	fns.link=function(scope, element, attrs) {
 	    var format,timeoutId;
@@ -36,8 +36,10 @@ myApp.directive('frefDir',function($log,$interval, dateFilter) {
 	   //var myobj=angular.fromJson($scope.obj1way);
 	   
 	   var myobj=$scope.objinway();
-	   $log.warn("from controller passed in")
+	   $log.debug($scope);
 	   $log.debug(myobj);
+	   $log.warn("from controller passed in")
+	   
 	   $log.debug($scope.format);	   
 	   if (myobj && angular.isObject(myobj)) {
 		   $log.debug(myobj.datax);
@@ -67,7 +69,7 @@ myApp.directive('frefDir',function($log,$interval, dateFilter) {
 		controller:fns.cnt,
 		templateUrl: 'js/directives/frefDir.htm'	
 	};
-});
+}]);
 
 
   

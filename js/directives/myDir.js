@@ -87,6 +87,7 @@ myApp.directive('myDir',function($interval, dateFilter) {
     			   
     			   var retfn=$scope.passfn();
     			   var retvalue=retfn(invalue);
+    			   //var retvalue=$scope.passfn({x: invalue});
     			   $scope.retmessage="invalue= " + invalue + " the return is: " + retvalue;  //  + retvalue;
     			   $log.log("the considerPrice getter: ");
     			   $log.debug($scope.considerPrice);

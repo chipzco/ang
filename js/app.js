@@ -6,6 +6,15 @@ myApp.config(function($stateProvider,$urlRouterProvider) {
 			url: "/",
 			templateUrl: "content.html"			
 		},
+		
+		fref={
+				name: "fref",
+				url: "fref",
+				templateUrl: "views/fref.html",
+				controller: "frefCtrl",			
+				parent: "ho"
+			},
+		
 		red={
 			name: "red",
 			url: "red",
@@ -46,6 +55,7 @@ myApp.config(function($stateProvider,$urlRouterProvider) {
 			
 		});*/
 	$stateProvider.state(home);
+	$stateProvider.state(fref);	
     $stateProvider.state(red);
     $stateProvider.state(green);
     $stateProvider.state(ang);

@@ -18,10 +18,7 @@ myApp.directive('frefDir',function($log,$interval, dateFilter) {
 		     $interval.cancel(timeoutId);
 		 });
 	    
-	    scope.testme=function () {
-	       $log.debug(attrs);	
-	 	   $log.debug(scope.format);
-	 	   $log.debug(scope.what);
+	    scope.testme=function () { 	   
 	    	 $log.warn("scope.mydirobj=");
 	    	 if (scope.mydirobj) {
 	    		 $log.debug(scope.mydirobj.datax);
@@ -38,22 +35,22 @@ myApp.directive('frefDir',function($log,$interval, dateFilter) {
    fns.cnt=function($scope) {
 	   //var myobj=angular.fromJson($scope.obj1way);
 	   
-	   var myobj=$scope.objinway;
+	   var myobj=$scope.objinway();
 	   $log.warn("from controller passed in")
 	   $log.debug(myobj);
-	   $log.debug($scope.format);
-	   $log.debug($scope.what);
-	   if (myobj) {
+	   $log.debug($scope.format);	   
+	   if (myobj && angular.isObject(myobj)) {
 		   $log.debug(myobj.datax);
 		   $log.debug(myobj.datay);
 		   $log.warn("about to change value");
 		   myobj.datax=99;
+		   $log.debug(myobj);
 	   }
 	   else 
 		   $log.warn("crap it is undefined!!!!");
 	   //var myobj2=angular.fromJson($scope.obj1way);
-	   if ($scope.objinway) {
-		   var myobj2=$scope.aaobj1way();
+	   if ($scope.objinway && angular.isFunction($scope.objinway)) {
+		   var myobj2=$scope.objinway();
 		   $scope.mydirobj=myobj;
 		   $log.warn("myobj2 obtained from passed in object")
 		   $log.debug(myobj2);
@@ -63,9 +60,8 @@ myApp.directive('frefDir',function($log,$interval, dateFilter) {
 	return {
 		restrict: 'E',		
 		scope: {		
-			objinway: '=',
-			format: '=',			
-			what: '='
+			objinway: '&',
+			format: '='
 		},	
 		link: fns.link,
 		controller:fns.cnt,

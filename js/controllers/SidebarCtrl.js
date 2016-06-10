@@ -1,5 +1,5 @@
 myApp.controller('SidebarCtrl', function ($scope, $state) {
-	$scope.content = ['red', 'green', 'blue','fref'];
+	$scope.content = ['red', 'green', 'blue','fref','custrun'];
 	$scope.setPage = function (page) {
 		$state.transitionTo(page);
 	};

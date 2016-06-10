@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp',['ui.router','angular.filter','UtilFilter']);
+var myApp = angular.module('myApp',['customer','ui.router','angular.filter','UtilFilter']);
 myApp.config(function($stateProvider,$urlRouterProvider) {
 	$stateProvider
 		var home={
@@ -45,6 +45,13 @@ myApp.config(function($stateProvider,$urlRouterProvider) {
 				parent:"green",
 				controller: "filterController",
 				controllerAs: "fc"
+		},
+		custrun={
+				name: "custrun",
+				url: "/custrun",
+				templateUrl:"views/custRun.htm",
+				parent:"ho",
+				controller: "custCtrl"				
 		}	
 	 ;
 		/*
@@ -60,6 +67,7 @@ myApp.config(function($stateProvider,$urlRouterProvider) {
     $stateProvider.state(green);
     $stateProvider.state(ang);
     $stateProvider.state(filtertest);
+    $stateProvider.state(custrun);
     $stateProvider.state('contacts', {
     url: "/contacts/:a",	
       templateUrl: function ($stateParams){

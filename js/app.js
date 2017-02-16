@@ -53,6 +53,13 @@ myApp.config(function($stateProvider,$urlRouterProvider) {
 				parent:"ho",
 				controller: "custCtrl"				
 		}	
+		dirtodir={
+			name: "dirtodir",
+			url: "/dir",
+			templateUrl: "views/dirtodir.htm",
+			controller: "dirtodirCtrl"
+		}
+		
 	 ;
 		/*
 		.state('home',{
@@ -68,6 +75,7 @@ myApp.config(function($stateProvider,$urlRouterProvider) {
     $stateProvider.state(ang);
     $stateProvider.state(filtertest);
     $stateProvider.state(custrun);
+    $stateProvider.state(dirtodir);
     $stateProvider.state('contacts', {
     url: "/contacts/:a",	
       templateUrl: function ($stateParams){

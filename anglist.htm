@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  		<script src="js/angular.js"></script>
+  		<script>
+  			angular.module('exampleModule', [])
+			.controller('scoreController', ['$scope', function($scope) {
+	
+				$scope.list = [
+	
+					{name: 'Lisa',  score: 95},
+	
+					{name: 'John',  score: 80},
+	
+					{name: 'Sean',  score: 60},
+	
+					{name: 'Sandy', score: 75},
+	
+					{name: 'Gary',  score: 45}
+	
+				];
+				
+				$scope.over75Comp = function (actual, expected) {
+				    if (!expected) {
+				       return true;
+				    }
+				    return actual >= expected;
+				}
+				
+			}])
+			
+			.controller('messageController', ['$scope', function($scope) {
+
+				$scope.message = '';
+				$scope.message_tmp = '';
+				$scope.save=function() {
+					$scope.message=$scope.message_tmp;
+				}
+				$scope.clear=function() {
+					$scope.message='';
+					$scope.message_tmp='';
+				}
+
+			}])
+			
+			
+			;  		
+  		</script>  		
+  </head>
+
+  <body ng-app="exampleModule">
+
+		<div ng-controller="scoreController">
+			<ul>
+				<li ng-repeat="l in list | filter: 75: over75Comp | orderBy: 'score': true">
+					 {{l.name}}:  {{l.score}}
+				</li>			
+			</ul>
+		</div>
+		
+		
+		
+		
+		<div ng-controller="messageController">
+
+			Input: <input ng-model="message_tmp"  />
+
+			
+
+			<button ng-click="save()">Submit</button>
+
+			<button ng-click="clear()">Clear</button>
+
+			
+
+			<br/>
+
+			
+
+			<div>Message: {{message}}</div>
+
+		</div>
+
+	</body>
+
+
+</html>
+  		
